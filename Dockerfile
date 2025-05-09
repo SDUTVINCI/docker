@@ -5,7 +5,7 @@ FROM --platform=linux/${TARGETARCH} tungchiahui/ros-opencv:humble-411-cuda128-cu
 
 # 下方内容为拓展的新内容
 
-
+# 暂无新内容
 
 # 启动时默认进入bash shell
 CMD ["bash"]
