@@ -5,7 +5,16 @@ FROM --platform=linux/${TARGETARCH} tungchiahui/ros-opencv:humble-411-cuda128-cu
 
 # 下方内容为拓展的新内容
 
-# 暂无新内容
+# 安装livox-sdk2
+WORKDIR /opt
+RUN git clone https://github.com/Livox-SDK/Livox-SDK2.git && \
+    cd ./Livox-SDK2/ && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make -j$(grep -c ^processor /proc/cpuinfo) && \
+    make install -j$(grep -c ^processor /proc/cpuinfo) && \
+    ldconfig
 
 # 启动时默认进入bash shell
 CMD ["bash"]
